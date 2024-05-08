@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 
 import '../components/bottom_nav_bar.dart';
 import 'home.dart';
-import 'notifications.dart';
+import 'profile.dart';
+import 'tickets.dart';
 
-class Favourites extends StatelessWidget {
-  static String routeName = '/favourites';
+class Parking extends StatelessWidget {
+  static String routeName = '/parking';
 
-  const Favourites({super.key});
+  const Parking({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: const Center(
         child: Text(
-          'Favourites Screen',
-          style: TextStyle(fontSize: 24),
+          'Parking Screen',
+          style: TextStyle(color: Colors.black, fontSize: 24),
         ),
       ),
       bottomNavigationBar: BottomNavBar(
@@ -24,7 +25,9 @@ class Favourites extends StatelessWidget {
           if (index == 0) {
             Navigator.pushNamed(context, Home.routeName);
           } else if (index == 2) {
-            Navigator.pushNamed(context, Notifications.routeName);
+            Navigator.pushNamed(context, Tickets.routeName);
+          } else if (index == 3) {
+            Navigator.pushNamed(context, Profile.routeName);
           }
         },
       ),

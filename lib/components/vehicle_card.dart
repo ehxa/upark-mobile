@@ -25,7 +25,9 @@ class VehicleCard extends StatelessWidget {
           onTap: onTap,
           child: Container(
             decoration: BoxDecoration(
-              color: isSelected ? Theme.of(context).colorScheme.onSurface : Theme.of(context).colorScheme.surface,
+              color: isSelected
+                  ? Theme.of(context).colorScheme.surface
+                  : Theme.of(context).colorScheme.onSurface,
               borderRadius: BorderRadius.circular(8.0),
             ),
             child: Padding(
@@ -37,8 +39,8 @@ class VehicleCard extends StatelessWidget {
                   Icon(
                     icon,
                     color: isSelected
-                        ? Theme.of(context).colorScheme.surface
-                        : Theme.of(context).colorScheme.onSurface,
+                        ? Theme.of(context).colorScheme.secondary
+                        : Theme.of(context).colorScheme.surface,
                   ),
                   Text(
                     type,
@@ -46,8 +48,8 @@ class VehicleCard extends StatelessWidget {
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,
                       color: isSelected
-                          ? Theme.of(context).colorScheme.onSecondary
-                          : Theme.of(context).colorScheme.onSurface,
+                          ? Theme.of(context).colorScheme.secondary
+                          : Theme.of(context).colorScheme.surface,
                     ),
                   ),
                 ],

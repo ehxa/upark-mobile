@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Booking extends StatelessWidget {
-  static String routeName = '/booking';
+class ChangePassword extends StatelessWidget {
+  static String routeName = '/changepassword';
 
-  const Booking({super.key});
+  const ChangePassword({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
         child: Text(
-          'Booking Screen',
+          'Change Password Screen',
           style: TextStyle(color: Colors.black, fontSize: 24),
         ),
       ),

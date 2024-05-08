@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Booking extends StatelessWidget {
-  static String routeName = '/booking';
+class ProfileSettings extends StatelessWidget {
+  static String routeName = '/profilesettings';
 
-  const Booking({super.key});
+  const ProfileSettings({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
         child: Text(
-          'Booking Screen',
+          'Profile Settings Screen',
           style: TextStyle(color: Colors.black, fontSize: 24),
         ),
       ),
