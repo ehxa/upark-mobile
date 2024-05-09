@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smart_park/utils/hex_color.dart';
+
+import '../../../../common/utils/hex_color.dart';
+
 
 class RoundInput extends StatelessWidget {
   final String label;

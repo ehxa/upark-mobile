@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-import 'screens/booking.dart';
-import 'screens/change_password.dart';
-import 'screens/park_details.dart';
-import 'screens/parking.dart';
-import 'screens/home.dart';
-import 'screens/profile_settings.dart';
-import 'screens/ticket_details.dart';
-import 'screens/profile.dart';
-import 'screens/sign_in.dart';
-import 'screens/sign_up.dart';
-import 'screens/tickets.dart';
-import 'utils/hex_color.dart';
-import 'utils/no_page_transition.dart';
+import 'common/utils/hex_color.dart';
+import 'common/utils/no_page_transition.dart';
+import 'features/trip/ui/screens/booking.dart';
+import 'features/trip/ui/screens/change_password.dart';
+import 'features/trip/ui/screens/home.dart';
+import 'features/trip/ui/screens/park_details.dart';
+import 'features/trip/ui/screens/parking.dart';
+import 'features/trip/ui/screens/profile.dart';
+import 'features/trip/ui/screens/profile_settings.dart';
+import 'features/trip/ui/screens/sign_in.dart';
+import 'features/trip/ui/screens/sign_up.dart';
+import 'features/trip/ui/screens/ticket_details.dart';
+import 'features/trip/ui/screens/tickets.dart';
 
 void main() {
   runApp(const UPark());
