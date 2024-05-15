@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../../../../common/utils/hex_color.dart';
-
-
 class RoundInput extends StatelessWidget {
   final String label;
   final TextEditingController controller;
+  final IconData icon;
 
   const RoundInput({
     super.key,
     required this.label,
     required this.controller,
+    required this.icon,
   });
 
   @override
@@ -20,25 +19,30 @@ class RoundInput extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: TextField(
-              controller: controller,
-              cursorColor: Colors.black,
-              keyboardType: TextInputType.visiblePassword,
-              decoration: InputDecoration(
-                hintText: label,
-                hintStyle: TextStyle(color: HexColor("#858585")),
-                filled: true,
-                fillColor: HexColor("#D4D5DF"),
-                prefixIcon: Icon(
-                  Icons.person_rounded,
-                  color: HexColor("#858585"),
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50.0),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50.0),
-                  borderSide: const BorderSide(color: Colors.black, width: 1.0),
+            child: SizedBox(
+              height: 55.0,
+              child: TextField(
+                controller: controller,
+                cursorColor: Colors.black,
+                keyboardType: TextInputType.visiblePassword,
+                decoration: InputDecoration(
+                  hintText: label,
+                  hintStyle: const TextStyle(color: Color(0xFF858585)),
+                  filled: true,
+                  fillColor: const Color(0xFFD4D5DF),
+                  prefixIcon: Icon(
+                    icon,
+                    color: const Color(0xFF858585),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                    borderSide:
+                        const BorderSide(color: Colors.black, width: 1.0),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 15.0),
                 ),
               ),
             ),

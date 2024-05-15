@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
 import '../components/bottom_nav_bar.dart';
+import '../components/screen_title.dart';
 import 'home.dart';
 import 'profile.dart';
 import 'tickets.dart';
 
-class Parking extends StatelessWidget {
-  static String routeName = '/parking';
+class Favourites extends StatelessWidget {
+  static String routeName = '/favourites';
 
-  const Parking({super.key});
+  const Favourites({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
-        child: Text(
-          'Parking Screen',
-          style: TextStyle(color: Colors.black, fontSize: 24),
-        ),
+      backgroundColor: Theme.of(context).colorScheme.background,
+      body: const Padding(
+        padding: EdgeInsets.fromLTRB(15.0, 50.0, 15.0, 0.0),
+        child: ScreenTitle(title: 'Favourites'),
       ),
       bottomNavigationBar: BottomNavBar(
         currentIndex: 1,

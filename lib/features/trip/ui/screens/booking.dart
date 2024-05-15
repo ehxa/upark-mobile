@@ -7,11 +7,12 @@ class Booking extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
+      body: const Center(
         child: Text(
           'Booking Screen',
-          style: TextStyle(color: Colors.black, fontSize: 24),
+          style: TextStyle(color: Colors.white, fontSize: 24),
         ),
       ),
     );

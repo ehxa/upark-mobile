@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -12,6 +13,8 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const double iconSize = 30.0;
+
     return BottomNavigationBar(
       backgroundColor: Theme.of(context).colorScheme.secondary,
       selectedItemColor: Theme.of(context).colorScheme.surface,
@@ -21,21 +24,28 @@ class BottomNavBar extends StatelessWidget {
       showUnselectedLabels: false,
       currentIndex: currentIndex,
       onTap: onTap,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_outlined),
+      items: [
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.local_parking_rounded, size: iconSize),
+          label: '',
+        ),
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.star_rounded, size: iconSize),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.local_parking_outlined),
+          icon: SvgPicture.asset(
+            'lib/assets/icons/ticket3.svg',
+            width: iconSize,
+            height: iconSize,
+            color: currentIndex == 2
+                ? Theme.of(context).colorScheme.surface
+                : Theme.of(context).colorScheme.onSurface,
+          ),
           label: '',
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.receipt_long_outlined),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_outline_outlined),
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.person_rounded, size: iconSize),
           label: '',
         ),
       ],

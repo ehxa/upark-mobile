@@ -25,13 +25,13 @@ class RoundButton extends StatelessWidget {
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(25.0),
             ),
           ),
           backgroundColor: MaterialStateProperty.all<Color>(backgroundColor),
         ),
         child: Text(
-          label,
+          label.toUpperCase(),
           style: TextStyle(
             fontSize: 15.0,
             color: foregroundColor,
