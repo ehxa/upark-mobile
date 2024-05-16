@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smart_park/features/trip/ui/components/round_btn.dart';
+
+import '../components/screen_title.dart';
+import '../components/subtitle.dart';
+import 'profile.dart';
 
 class ProfileSettings extends StatelessWidget {
   static String routeName = '/profilesettings';
@@ -7,6 +12,13 @@ class ProfileSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController nameController =
+        TextEditingController(text: 'João Fernandes');
+    final TextEditingController emailController =
+        TextEditingController(text: 'joaofernandes@gmail.com');
+    final TextEditingController phoneController =
+        TextEditingController(text: '+351 965437644');
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
@@ -14,42 +26,48 @@ class ProfileSettings extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'PROFILE SETTINGS',
-              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-            ),
+            const ScreenTitle(title: 'My Profile'),
+            const SizedBox(height: 40.0),
+            const Subtitle(subtitle: 'Profile Settings'),
             const SizedBox(height: 10.0),
             const Text('Modify your details'),
-            const SizedBox(height: 10.0),
-            const Text('Full Name'),
-            const TextField(
-              decoration: InputDecoration(
-                hintText: 'João Fernandes',
-              ),
-            ),
-            const SizedBox(height: 10.0),
-            const Text('Email Address'),
-            const TextField(
-              decoration: InputDecoration(
-                hintText: 'joaofernandes@gmail.com',
-              ),
-            ),
-            const SizedBox(height: 10.0),
-            const Text('Phone Number'),
-            const TextField(
-              decoration: InputDecoration(
-                hintText: '(+351) 965437644',
+            const SizedBox(height: 20.0),
+            TextField(
+              controller: nameController,
+              decoration: const InputDecoration(
+                labelText: 'Full Name',
+                labelStyle: TextStyle(color: Colors.white70, fontSize: 18),
               ),
             ),
             const SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                //  handle save button press
-              },
-              child: const Text(
-                'SAVE CHANGES',
-                style: TextStyle(color: Colors.white),
+            TextField(
+              controller: emailController,
+              decoration: const InputDecoration(
+                labelText: 'Email Address',
+                labelStyle: TextStyle(color: Colors.white70, fontSize: 18),
               ),
+            ),
+            const SizedBox(height: 20.0),
+            TextField(
+              controller: phoneController,
+              decoration: const InputDecoration(
+                labelText: 'Phone Number',
+                labelStyle: TextStyle(color: Colors.white70, fontSize: 18),
+              ),
+              keyboardType: TextInputType.number,
+            ),
+            const SizedBox(height: 40.0),
+            Row(
+              children: [
+                Expanded(
+                  child: RoundButton(
+                      label: 'Save Changes',
+                      dstRoute: Profile.routeName,
+                      backgroundColor: Theme.of(context).colorScheme.secondary,
+                      foregroundColor:
+                          Theme.of(context).colorScheme.onSecondary),
+                ),
+              ],
             ),
           ],
         ),

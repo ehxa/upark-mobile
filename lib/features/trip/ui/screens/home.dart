@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../components/parks_nearby.dart';
 import '../components/bottom_nav_bar.dart';
 import 'favourites.dart';
 import 'profile.dart';
@@ -42,26 +43,33 @@ class _HomeState extends State<Home> {
         children: [
           const GoogleMap(
             initialCameraPosition: CameraPosition(
-              target: LatLng(32.6591122,-16.9272408),
+              target: LatLng(32.6591122, -16.9272408),
               zoom: 17,
             ),
             myLocationEnabled: true,
             zoomControlsEnabled: false,
             mapType: MapType.normal,
           ),
+          const Positioned(
+            bottom: kBottomNavigationBarHeight / 1.5,
+            left: 0,
+            right: 0,
+            child: ParksNearby(),
+          ),
           Padding(
             padding: const EdgeInsets.fromLTRB(15.0, 50.0, 15.0, 0.0),
             child: Column(
               children: [
                 Container(
+                  height: 55,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40.0),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1), // Shadow color
-                        spreadRadius: 5, // Spread radius
-                        blurRadius: 5, // Blur radius
-                        offset: const Offset(0, 2), // Offset
+                        color: Colors.black.withOpacity(0.1),
+                        spreadRadius: 5,
+                        blurRadius: 5,
+                        offset: const Offset(0, 2),
                       ),
                     ],
                   ),
@@ -86,6 +94,7 @@ class _HomeState extends State<Home> {
                         borderSide: BorderSide(
                             color: Colors.black.withOpacity(0.5), width: 1.0),
                       ),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 12.0),
                     ),
                   ),
                 ),

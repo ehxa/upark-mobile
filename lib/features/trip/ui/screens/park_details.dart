@@ -62,11 +62,19 @@ class ParkDetails extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 const SizedBox(height: 20),
-                RoundButton(
-                  label: 'Book Your Spot',
-                  dstRoute: Booking.routeName,
-                  backgroundColor: Theme.of(context).colorScheme.secondary,
-                  foregroundColor: Theme.of(context).colorScheme.onSecondary,
+                Row(
+                  children: [
+                    Expanded(
+                      child: RoundButton(
+                        label: 'Book Your Spot',
+                        dstRoute: Booking.routeName,
+                        backgroundColor:
+                            Theme.of(context).colorScheme.secondary,
+                        foregroundColor:
+                            Theme.of(context).colorScheme.onSecondary,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

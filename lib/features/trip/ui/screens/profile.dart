@@ -29,89 +29,155 @@ class Profile extends StatelessWidget {
             children: [
               const ScreenTitle(title: 'My Profile'),
               const SizedBox(height: 20),
-              const Text(
-                'João Fernandes',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.secondary,
+                        shape: BoxShape.circle),
+                    padding: const EdgeInsets.all(16),
+                    child: const Icon(
+                      Icons.person_rounded,
+                      size: 48,
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'João Fernandes',
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        '0167873902',
+                        style: TextStyle(color: Colors.white70),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              const SizedBox(height: 5),
-              const Text(
-                '0167873902',
-                style: TextStyle(color: Colors.white70),
-              ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
               const Subtitle(subtitle: 'Account Details'),
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                leading: Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .secondary
-                        .withOpacity(0.49),
-                    borderRadius: BorderRadius.circular(8.0),
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .secondary
+                          .withOpacity(0.49),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    padding: const EdgeInsets.all(8.0),
+                    child: const Icon(
+                      Icons.settings,
+                    ),
                   ),
-                  padding: const EdgeInsets.all(8.0),
-                  child: const Icon(
-                    Icons.settings,
+                  const SizedBox(width: 16.0),
+                  Expanded(
+                    child: Text(
+                      'Profile settings',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
                   ),
-                ),
-                title: const Text('Profile settings'),
-                trailing: const Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  color: Colors.white70,
-                ),
-                onTap: () {
-                  Navigator.pushNamed(context, ProfileSettings.routeName);
-                },
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, ProfileSettings.routeName);
+                    },
+                    child: const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: Colors.white70,
+                    ),
+                  ),
+                ],
               ),
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                leading: Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .secondary
-                        .withOpacity(0.49),
-                    borderRadius: BorderRadius.circular(8.0),
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context)
+                          .colorScheme
+                          .secondary
+                          .withOpacity(0.49),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    padding: const EdgeInsets.all(8.0),
+                    child: const Icon(
+                      Icons.lock_rounded,
+                    ),
                   ),
-                  padding: const EdgeInsets.all(8.0),
-                  child: const Icon(
-                    Icons.lock_rounded,
+                  const SizedBox(width: 16.0),
+                  Expanded(
+                    child: Text(
+                      'Change password',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
                   ),
-                ),
-                title: const Text('Change password'),
-                trailing: const Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  color: Colors.white70,
-                ),
-                onTap: () {
-                  Navigator.pushNamed(context, ChangePassword.routeName);
-                },
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, ChangePassword.routeName);
+                    },
+                    child: const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: Colors.white70,
+                    ),
+                  ),
+                ],
               ),
+              const SizedBox(height: 20),
               const CustomSwitch(),
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
               const DashDivider(),
-              const SizedBox(height: 20),
-              ListTile(
-                leading: const Icon(Icons.logout_rounded),
-                title: const Text('Logout'),
-                onTap: () {
-                  Navigator.pushNamed(context, SignIn.routeName);
-                },
+              const SizedBox(height: 40),
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, SignIn.routeName);
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      child: Icon(Icons.logout_rounded),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, SignIn.routeName);
+                    },
+                    child: Text('Logout',
+                        style: Theme.of(context).textTheme.bodyLarge),
+                  ),
+                ],
               ),
-              ListTile(
-                leading: Icon(
-                  Icons.highlight_remove_rounded,
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
-                title: Text(
-                  'Deactivate account',
-                  style:
-                      TextStyle(color: Theme.of(context).colorScheme.secondary),
-                ),
+              const SizedBox(height: 20),
+              GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, SignIn.routeName);
                 },
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Icon(
+                        Icons.highlight_remove_rounded,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Text(
+                      'Deactivate account',
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
