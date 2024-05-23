@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 
 class CustomSwitch extends StatefulWidget {
-  const CustomSwitch({Key? key}) : super(key: key);
+  final Function(bool) onThemeChanged;
+  final bool isLightTheme;
+
+  const CustomSwitch(
+      {super.key, required this.onThemeChanged, required this.isLightTheme});
 
   @override
   CustomSwitchState createState() => CustomSwitchState();
 }
 
 class CustomSwitchState extends State<CustomSwitch> {
-  bool _isDarkThemeEnabled = false;
+  late bool _isDarkThemeEnabled;
+
+  @override
+  void initState() {
+    super.initState();
+    _isDarkThemeEnabled = widget.isLightTheme;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +37,7 @@ class CustomSwitchState extends State<CustomSwitch> {
         const SizedBox(width: 16.0),
         Expanded(
           child: Text(
-            'Dark theme',
+            'Light theme',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
         ),
@@ -35,6 +45,7 @@ class CustomSwitchState extends State<CustomSwitch> {
           onTap: () {
             setState(() {
               _isDarkThemeEnabled = !_isDarkThemeEnabled;
+              widget.onThemeChanged(_isDarkThemeEnabled);
             });
           },
           child: Switch(
@@ -42,6 +53,7 @@ class CustomSwitchState extends State<CustomSwitch> {
             onChanged: (value) {
               setState(() {
                 _isDarkThemeEnabled = value;
+                widget.onThemeChanged(value);
               });
             },
             activeTrackColor: Colors.white70,

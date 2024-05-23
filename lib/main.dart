@@ -17,10 +17,6 @@ import 'features/trip/ui/screens/ticket_details.dart';
 import 'features/trip/ui/screens/tickets.dart';
 
 void main() {
-  // final dbRepository = DBRepository();
-  // dbRepository.configureAmplify().then((_) {
-  //   runApp(const UPark());
-  // });
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.black,
     statusBarIconBrightness: Brightness.light,
@@ -30,6 +26,11 @@ void main() {
     DeviceOrientation.portraitDown,
   ]);
   runApp(const UPark());
+  // final dbRepository = DBRepository();
+  // dbRepository.configureAmplify().then((_) {
+  //   dbRepository.createParkinfo();
+  //   runApp(const UPark());
+  // });
 }
 
 class UPark extends StatefulWidget {
@@ -41,6 +42,13 @@ class UPark extends StatefulWidget {
 
 class UParkState extends State<UPark> {
   // final dbRepository = DBRepository();
+  bool _isLightTheme = false;
+
+  void _toggleTheme(bool isLightTheme) {
+    setState(() {
+      _isLightTheme = isLightTheme;
+    });
+  }
 
   @override
   void initState() {
@@ -49,7 +57,7 @@ class UParkState extends State<UPark> {
 
   @override
   Widget build(BuildContext context) {
-    const ColorScheme customColorScheme = ColorScheme(
+    const ColorScheme customDarkColorScheme = ColorScheme(
       primary: Color(0xFF000000),
       onPrimary: Color(0xFF1C1D28),
       secondary: Color(0xFFB23537),
@@ -63,11 +71,36 @@ class UParkState extends State<UPark> {
       brightness: Brightness.dark,
     );
 
+    const ColorScheme customLightColorScheme = ColorScheme(
+      primary: Color(0xFFFFFFFF),
+      // Light background
+      onPrimary: Color(0xFF000000),
+      // Dark text on light background
+      secondary: Color(0xFFB23537),
+      // Accent color remains the same
+      onSecondary: Color(0xFFFFFFFF),
+      // White text on secondary color
+      error: Colors.red,
+      // Error color remains the same
+      onError: Colors.white,
+      // White text on error color
+      background: Color(0xFFFFFFFF),
+      // Light background
+      onBackground: Color(0xFF000000),
+      // Dark text on light background
+      surface: Color(0xFFFFFFFF),
+      // Light surface
+      onSurface: Color(0xFF000000),
+      // Dark text on light surface
+      brightness: Brightness.light, // Light theme brightness
+    );
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'U-Park',
       theme: ThemeData(
-        colorScheme: customColorScheme,
+        colorScheme:
+        _isLightTheme ? customLightColorScheme : customDarkColorScheme,
         useMaterial3: true,
         pageTransitionsTheme: const PageTransitionsTheme(
           builders: {
@@ -87,7 +120,8 @@ class UParkState extends State<UPark> {
         Favourites.routeName: (context) => const Favourites(),
         Tickets.routeName: (context) => const Tickets(),
         TicketDetails.routeName: (context) => const TicketDetails(),
-        Profile.routeName: (context) => const Profile(),
+        Profile.routeName: (context) =>
+            Profile(onThemeChanged: _toggleTheme, isLightTheme: _isLightTheme),
         ProfileSettings.routeName: (context) => const ProfileSettings(),
         ChangePassword.routeName: (context) => const ChangePassword(),
       },

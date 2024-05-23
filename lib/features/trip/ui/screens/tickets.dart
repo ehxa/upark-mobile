@@ -24,36 +24,36 @@ class Tickets extends StatelessWidget {
             children: [
               const ScreenTitle(title: 'Parking\nTickets'),
               const SizedBox(height: 20),
-              TicketCard(
-                color: Theme.of(context).colorScheme.secondary,
+              const TicketCard(
+                color: Color(0xFFF8A934),
                 park: 'Zone 1 - Funchal',
                 brand: 'Renault Megane',
                 plate: 'GT 94 ER',
               ),
               const SizedBox(height: 10),
-              const TicketCard(
-                color: Color(0xFF6160AB),
+              TicketCard(
+                color: Theme.of(context).colorScheme.secondary,
                 park: 'Zone 5 - Funchal',
                 brand: 'Renault Megane',
                 plate: 'GT 94 ER',
               ),
               const SizedBox(height: 10),
-              const TicketCard(
-                color: Color(0xFFF8A934),
+              TicketCard(
+                color: Theme.of(context).colorScheme.secondary,
                 park: 'Zone 7 - Funchal',
                 brand: 'Renault Megane',
                 plate: 'GT 94 ER',
               ),
               const SizedBox(height: 10),
-              const TicketCard(
-                color: Color(0xFFF8A934),
+              TicketCard(
+                color: Theme.of(context).colorScheme.secondary,
                 park: 'Zone 7 - Funchal',
                 brand: 'Renault Megane',
                 plate: 'GT 94 ER',
               ),
               const SizedBox(height: 10),
-              const TicketCard(
-                color: Color(0xFFF8A934),
+              TicketCard(
+                color: Theme.of(context).colorScheme.secondary,
                 park: 'Zone 7 - Funchal',
                 brand: 'Renault Megane',
                 plate: 'GT 94 ER',

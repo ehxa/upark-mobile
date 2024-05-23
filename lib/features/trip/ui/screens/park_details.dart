@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smart_park/features/trip/ui/components/round_btn.dart';
-import 'package:smart_park/features/trip/ui/components/screen_title.dart';
 
+import '../components/park_image.dart';
+import '../components/round_btn.dart';
+import '../components/screen_title.dart';
 import 'booking.dart';
 
 class ParkDetails extends StatelessWidget {
@@ -11,21 +12,21 @@ class ParkDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Map<String, dynamic> args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final String imageUrl = args['imageUrl'] as String;
+    final String name = args['name'] as String;
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(
         children: [
-          Image.asset(
-            'lib/assets/images/tecnoparque.jpg',
-            width: double.infinity,
-            height: 250,
-            fit: BoxFit.cover,
-          ),
+          ParkImage(imageUrl: imageUrl),
           Padding(
             padding: const EdgeInsets.fromLTRB(15, 20, 15, 0),
             child: Column(
               children: [
-                const ScreenTitle(title: 'Name Of The Park'),
+                ScreenTitle(title: name),
                 const SizedBox(height: 20),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

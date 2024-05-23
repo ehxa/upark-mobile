@@ -14,8 +14,14 @@ import 'tickets.dart';
 
 class Profile extends StatelessWidget {
   static String routeName = '/profile';
+  final Function(bool) onThemeChanged;
+  final bool isLightTheme;
 
-  const Profile({super.key});
+  const Profile({
+    super.key,
+    required this.onThemeChanged,
+    required this.isLightTheme,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +136,8 @@ class Profile extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              const CustomSwitch(),
+              CustomSwitch(
+                  onThemeChanged: onThemeChanged, isLightTheme: isLightTheme),
               const SizedBox(height: 40),
               const DashDivider(),
               const SizedBox(height: 40),

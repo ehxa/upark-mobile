@@ -5,6 +5,7 @@ class RoundButton extends StatelessWidget {
   final String dstRoute;
   final Color backgroundColor;
   final Color foregroundColor;
+  final VoidCallback? onPressed;
 
   const RoundButton({
     super.key,
@@ -12,6 +13,7 @@ class RoundButton extends StatelessWidget {
     required this.dstRoute,
     required this.backgroundColor,
     required this.foregroundColor,
+    this.onPressed,
   });
 
   @override
@@ -19,9 +21,10 @@ class RoundButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.pushNamed(context, dstRoute);
-        },
+        onPressed: onPressed ??
+            () {
+              Navigator.pushNamed(context, dstRoute);
+            },
         style: ButtonStyle(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
